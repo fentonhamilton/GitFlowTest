@@ -1,0 +1,15 @@
+<assembly>
+<formats>
+    <format>zip</format>
+</formats>
+
+<fileSets>
+    <fileSet>
+        <directory>/Artifact</directory>
+        <includes>
+            <include>**/*</include>
+        </includes>
+        <outputDirectory>Artifact</outputDirectory>
+    </fileSet>
+</fileSets>
+</assembly>
