@@ -11,5 +11,6 @@ public class Class1 {
 
         System.out.println("helllo 123456");
         System.out.println("helllo 123457");
+        System.out.println("test");
     }
 }
