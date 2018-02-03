@@ -1,0 +1,55 @@
+{
+  "account" : "/Compute-a493080/default",
+  "description" : "",
+  "tags" : [ ],
+  "name" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM",
+  "objects" : [ {
+    "account" : "/Compute-a493080/default",
+    "desired_state" : "inherit",
+    "description" : "",
+    "persistent" : true,
+    "template" : {
+      "managed" : true,
+      "name" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM_storage",
+      "bootable" : true,
+      "shared" : false,
+      "imagelist" : "/oracle/public/OL_7.2_UEKR4_x86_64",
+      "properties" : [ "/oracle/public/storage/default" ],
+      "size" : "12G"
+    },
+    "label" : "TESTVM_storage_1",
+    "orchestration" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM",
+    "type" : "StorageVolume",
+    "name" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM/TESTVM_storage"
+  }, {
+    "account" : "/Compute-a493080/default",
+    "desired_state" : "inherit",
+    "description" : "",
+    "persistent" : false,
+    "template" : {
+      "networking" : {
+        "eth0" : {
+          "seclists" : [ "/Compute-a493080/default/default" ],
+          "nat" : "ippool:/oracle/public/ippool",
+          "dns" : [ "TESTVM" ]
+        }
+      },
+      "name" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM",
+      "storage_attachments" : [ {
+        "volume" : "{{TESTVM_storage_1:name}}",
+        "index" : 1
+      } ],
+      "boot_order" : [ 1 ],
+      "hostname" : "testvm",
+      "label" : "TESTVM",
+      "shape" : "oc3",
+      "imagelist" : "/oracle/public/OL_7.2_UEKR4_x86_64",
+      "sshkeys" : [ "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/MEDKEY" ]
+    },
+    "label" : "TESTVM_instance",
+    "orchestration" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM",
+    "type" : "Instance",
+    "name" : "/Compute-a493080/bhanu.prakash.lohumi@accenture.com/TESTVM/instance"
+  } ],
+  "desired_state" : "active"
+}
